@@ -24,12 +24,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        stepperDidChange(morePetsStepper)
         
     }
     @IBAction func stepperDidChange(_ sender: UIStepper){
+        morePetsStepper.value = 0
+        morePetsStepper.stepValue = 1
+        morePetsStepper.maximumValue = 5
         numberOfPetsLabel.text = "\(sender.value)"
     }
+    
+    @IBAction func introduceSelfDidTapped(_ sender: UIButton) {
+
+
+       let year = yearSegmentedControl.titleForSegment(at: yearSegmentedControl.selectedSegmentIndex)
+
+       // Creating a constant of type string that holds an introduction. The introduction receives the values from the outlet connections.
+       let introduction = "My name is \(firstNameTextField.text!) \(lastNameTextField.text!) and I attend \(schoolNameTextField.text!).I am currently in my \(year!) year and I own \(numberOfPetsLabel.text!) dogs.It is \(morePetsSwitch.isOn) that I want more pets."
+
+       print(introduction)
+   }
 
 
 }
